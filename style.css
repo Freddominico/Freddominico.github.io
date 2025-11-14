@@ -1,0 +1,492 @@
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #0e0e0e;
+  color: #ebebdf;
+  line-height: 1.6;
+}
+
+/* ===== Navbar Base ===== */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0e0e0e;
+    padding: 15px 25px;
+    position: sticky;
+    top:0;
+    z-index: 100;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* ===== Nav Links ===== */
+nav ul {
+    display: flex;
+    list-style: none;
+    transition: max-height 0.4s ease, opacity 0.5s ease;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #ebebdf;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover{
+    color: #7D7B7A;
+}
+
+/* ===== Hamburger ===== */
+.hamburger{
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span{
+    height: 3px;
+    width: 25px;
+    background: #ebebdf;
+    margin: 4px 0;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* ===== Responsive Navigation ===== */
+@media (max-width: 768px) {
+    nav ul {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: #0e0e0e;
+        align-items: center;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+    }
+
+    nav ul.active {
+        max-height: 300px;
+        opacity: 1;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    .hamburger{
+        display: flex;
+    }
+}
+
+/* ===== Hamburger Animation ===== */
+.hamburger.open span:nth-child(1){
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2){
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3){
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===== Hero ===== */
+.hero {
+  height: 100vh;
+  background: url("assets/herobg.png") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #bbb;
+}
+
+/* ===== About ===== */
+.about {
+  padding: 6rem 3rem;
+  background: #0e0e0e;
+  text-align: center;
+}
+
+.about h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.about em {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #bbb;
+  font-size: 1.2rem;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 1rem auto;
+  color: #bfbfbf;
+  font-size: 1.1rem;
+}
+
+/* ===== Chronicle ===== */
+.story{
+  padding: 6rem 3rem;
+  background: #111;
+  text-align: center;
+}
+
+.story h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.story em {
+  max-width: 700px;
+  margin-bottom: 2.2rem;
+  color: #bbb;
+  font-size: 1.1rem;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #2e3138;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+.content:hover{
+  transform: scale(1.1);
+  box-shadow:0 0 22px rgba(255,159,85,0.9);
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: #111;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.left { left: 0; }
+.right { left: 50%; }
+
+.left::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  right: 30px;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #1b1b1b;
+}
+
+.right::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 30px;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #1b1b1b transparent transparent;
+}
+
+.right::after { left: -16px; }
+
+.content {
+  padding: 20px 30px;
+  background-color: #1b1b1b;
+  border-radius: 6px;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline::after { left: 31px; }
+  .container { width: 100%; padding-left: 70px; padding-right: 25px; }
+  .container::before { left: 60px; border-width: 10px 10px 10px 0; }
+  .left::after, .right::after { left: 15px; }
+  .right { left: 0%; }
+}
+
+.stdate { font-weight:600; color:var(--accent); font-size:20px; }
+.sttitle { margin:6px 0; font-size:17px; font-weight:500; }
+.stdesc { color:var(--muted); font-size:15px; line-height:1.55; font-style:italic; }
+
+/* ===== Skills ===== */
+.skills {
+  padding: 6rem 3rem;
+  background: #0e0e0e;
+  text-align: center;
+}
+
+.skills h2 { margin-bottom: 2rem; font-size: 2rem; }
+.skills em { max-width: 700px; margin-bottom: 2.2rem; color: #bbb; font-size: 1.1rem; }
+
+/* Notes */
+.skillnotes{
+  margin-top: 2rem;
+  border: 1px solid #ebebdf;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.notecontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  justify-items: center;
+}
+
+.notevalue {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.hex-rating {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.hex {
+  width: 16px;
+  height: 16px;
+  background-color: #bfbfbf;
+  clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+  transition: background 0.3s;
+}
+
+/* ===== ACTIVE HEX + SPARKLE ===== */
+@keyframes hexSparkle {
+  0% { box-shadow: 0 0 6px rgba(255,159,85,0.6); }
+  50% { box-shadow: 0 0 14px rgba(255,159,85,1); }
+  100% { box-shadow: 0 0 6px rgba(255,159,85,0.6); }
+}
+
+.hex.active {
+  background-color: #FF9F55;
+  animation: hexSparkle 1.2s ease-in-out infinite;
+}
+
+/* Category wrapper */
+.skills-warpper{
+  margin-top: 2rem;
+  text-align: left;
+  padding: 1rem;
+}
+
+.skills-warpper h3{
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* ===== Underline animation ===== */
+.linet {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color:#ebebdf;
+    margin: 2px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.linet::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #FF9F55;
+    transform: translateX(-100%);
+    transition: transform 0.7s ease;
+}
+
+.skills-warpper.visible .linet::after {
+    transform: translateX(0);
+}
+
+/* Skill grid */
+.skilltabcontainer{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.skillvalue{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  color: #ebebdf;
+  max-width: 400px;
+
+  /* Hover elevation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skillvalue:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 15px rgba(255,159,85,0.35);
+}
+
+/* Icon micro-tilt */
+.skillvalue img {
+  height: 30px;
+  width: auto;
+  transition: transform 0.25s ease;
+}
+
+.skillvalue:hover img {
+  transform: rotate(-5deg);
+}
+
+.tableskill td:nth-child(2){
+    width: 150px;
+    padding-left: 10px;
+}
+
+/*education skills*/
+.edu{
+  border-bottom: #ebebdf 1px solid ;
+  text-align: center;
+  font: 1em sans-serif;
+  margin-top: 30px;
+}
+
+/* ======= Hobby ======== */
+.hobby{
+  padding: 6rem 3rem;
+  background: #111;
+  text-align: center;
+}
+
+.hobby h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.hobby em {
+  max-width: 700px;
+  margin-bottom: 2.2rem;
+  color: #bbb;
+  font-size: 1.1rem;
+}
+
+.hobby-container {
+   margin-top: 2rem;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   gap: 1.5rem;
+ }
+
+ .hobby-card {
+   background: #1b1b1b;
+   border-radius: 12px;
+   overflow: hidden;
+   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+   cursor: pointer;
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
+ }
+
+ .hobby-card:hover {
+   transform: translateY(-3px);
+   box-shadow: 0 6px 15px rgba(255,159,85,0.35);
+ }
+
+ .hobby-card img {
+   width: 50px;
+   object-fit: cover;
+   padding-top: 20px;
+ }
+
+ .hobby-card h3 {
+   text-align: center;
+   margin: 10px 0;
+   font-size: 1rem;
+ }
+
+ .hobby-description {
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height 0.4s ease, opacity 0.3s ease;
+   opacity: 0;
+   padding: 0 15px;
+ }
+
+ .hobby-card.active .hobby-description {
+   max-height: 200px;
+   opacity: 1;
+   margin-bottom: 10px;
+ }
+
+ .hobby-description p {
+   margin: 10px 0;
+ }
+
+/* ========== Footer ============*/
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #0e0e0e;
+  color: #ebebdf;
+  font-size: 0.9rem;
+}
